@@ -1,0 +1,15 @@
+Scanner in=new Scanner(System.in);
+int ab=in.nextInt();
+int bc=in.nextInt();
+int ca=in.nextInt();
+int a=1;
+while(a<=ab){
+	if((ab/a)*(ca/a)==bc && ab%a==0 && ca%a==0){
+		break;
+	}
+	a++;
+}
+int b=ab/a;
+int c=ca/a;
+System.out.println(4*(a+b+c));
+
