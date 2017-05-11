@@ -1,4 +1,4 @@
-package pattern.StrategyPattern;
+package patterns.Behavioral.StrategyPattern;
 
 /**
  * Created by hoangtd on 2/21/2017.

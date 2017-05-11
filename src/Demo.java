@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Demo {
 
     public static void main(String[] args) {
-        String input = new Scanner(System.in).nextLine();
+        System.out.println("Nhập commit: ");
+        String str = new Scanner(System.in).nextLine();
 
-        System.out.println(input.substring(1));
+        System.out.println(str);
     }
 }

@@ -1,9 +1,9 @@
-package pattern.FactoryPattern;
+package patterns.Creational.FactoryPattern;
 
 /**
  * Created by hoangtd on 2/21/2017.
  */
-public class Circle implements Shape {
+public class Square implements Shape{
     @Override
     public void draw() {
 
