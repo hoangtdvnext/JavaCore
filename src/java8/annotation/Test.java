@@ -9,8 +9,9 @@ import java.lang.annotation.Target;
  * Created by ASUS on 5/23/2017.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target(ElementType.METHOD) //can use in method only.
 public @interface Test {
 
+    //should ignore this test?
     boolean enabled() default true;
 }
