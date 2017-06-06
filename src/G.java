@@ -26,27 +26,33 @@ public class G {
         String str2[] = dathuc2.split("[\\s,+]+");
         String output = "";
 
-        for (int i = 0; i < str1.length; i++) {
-            for (int j = 0; j < str2.length; j++) {
+        for (int i = 0; i < str1.length; ) {
+            for (int j = 0; j < str2.length; ) {
                 int bac_dt1 = Integer.parseInt(str1[i].substring(str1[i].length() - 1));
                 int bac_dt2 = Integer.parseInt(str2[j].substring(str2[j].length() - 1));
                 // check dt1>dt2
                 if (bac_dt1 < bac_dt2) {
-                    output += str2[j] + " +";
+                    if(!output.contains(str1[i]) && !output.contains(str2[j]))
+                        output += str2[j] + " + ";
+                    j++;
                 }
                 //else dt1=dt2
                 else if (bac_dt1 == bac_dt2) {
                     int value1 = Integer.parseInt(str1[i].charAt(0) + "");
                     int value2 = Integer.parseInt(str2[j].charAt(0) + "");
-                    output += (value1 + value2) + str1[i].substring(1, str1[i].length()) + " +";
+                    output += (value1 + value2) + str1[i].substring(1, str1[i].length()) + " + ";
+                    i++;
+                    j++;
                 }
                 //else
                 else {
-                    output += str1[i] + " +";
+                    if(!output.contains(str1[i]) && !output.contains(str2[j]))
+                    output += str1[i] + " + ";
+                    i++;
                 }
             }
         }
 
-        return output.substring(0, output.length()-2);
+        return output.substring(0, output.length()-3);
     }
 }

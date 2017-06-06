@@ -6,12 +6,7 @@ import java.util.Scanner;
  */
 public class L {
     static int top = -1;
-    static int stack[];
-
-    public static void init() {
-        top = -1;
-        stack = new int[1000];
-    }
+    static int stack[]= new int[1000];
 
     public static void push(int x) {
         stack[++top] = x;
@@ -23,39 +18,22 @@ public class L {
         }
     }
 
-    public static void size() {
-        System.out.println(top + 1);
-    }
-
-    public static void top() {
-        if (top != -1) {
-            System.out.println(stack[top]);
-        } else System.out.println(-1);
-    }
-
-    public static void isEmty() {
-        if (top == -1) {
-            System.out.println("empty");
-        } else System.out.println(0);
-    }
-
     public static void show() {
-        if (top == -1) {
-            System.out.println("empty");
-        } else System.out.println(0);
+        for (int i = 0; i <= top; i++) {
+            System.out.print(stack[i] + " ");
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         ArrayList<String> listInputs = new ArrayList<>();
         String str_ = "";
-        while (!str_.equalsIgnoreCase("end")) {
+        while (true) {
             str_ = input.nextLine();
             listInputs.add(str_);
-        }
-        init();
-        for (String str : listInputs) {
-            String tocken[] = str.split(" ");
+            String tocken[] = str_.split(" ");
+            boolean check = false;
             switch (tocken[0]) {
                 case "push":
                     push(Integer.parseInt(tocken[1]));
@@ -64,14 +42,20 @@ public class L {
                     pop();
                     break;
                 case "show":
-                    show();
-                    break;
-                case "empty":
-                    isEmty();
+                    if (top == -1) {
+                        System.out.println("empty");
+                        check = true;
+                    } else {
+                        show();
+                    }
                     break;
                 default:
                     break;
             }
+
+            if (check) break;
         }
+
+
     }
 }
