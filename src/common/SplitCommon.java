@@ -10,7 +10,7 @@ public class SplitCommon {
         System.out.print("Input: ");
         String input = new Scanner(System.in).nextLine();
 
-        String splitStr[] = input.trim().split("[\\s]+");
+        String splitStr[] = input.trim().split("[\\s,+]+");
 
         if (splitStr.length > 0) {
             for (int i = 0; i < splitStr.length; i++) {
