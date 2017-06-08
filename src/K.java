@@ -35,7 +35,11 @@ public class K {
         }
     }
 
-    public static  void sinhHV(){
+    public static  void sinhHV(int arr[], int n){
+        int i = n-2;
+        //1.kiem tra xem phan tu ai > ai+1
+        while (arr[i]>arr[i+1] && i>0) i--;
+        //2. check i
 
     }
 }
