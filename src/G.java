@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,47 +7,44 @@ public class G {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = Integer.parseInt(input.nextLine());
-        List<String> answer = new ArrayList<>();
-
         for (int i = 0; i < n; i++) {
             String dathuc1 = input.nextLine();
             String dathuc2 = input.nextLine();
 
-            answer.add(sumDaThuc(dathuc1,dathuc2));
+            System.out.println(sumDaThuc(dathuc1, dathuc2));
         }
-
-        answer.forEach(ans -> System.out.println(ans));
     }
 
     public static String sumDaThuc(String dathuc1, String dathuc2) {
         String str1[] = dathuc1.split("[\\s,+]+");
         String str2[] = dathuc2.split("[\\s,+]+");
         String output = "";
+        long a[] = new long[10000];
+        int ba = 0, bb = 0;
+        for (int i = 0; i < str1.length; i++) {
+            String arr[] = str1[i].split("\\*x\\^");
+            if (ba <= Integer.parseInt(arr[1]))
+                ba = Integer.parseInt(arr[1]);
+            a[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
+        }
 
-        for (int i = 0; i < str1.length; ) {
-            for (int j = 0; j < str2.length; ) {
-                int bac_dt1 = Integer.parseInt(str1[i].substring(str1[i].length() - 1));
-                int bac_dt2 = Integer.parseInt(str2[j].substring(str2[j].length() - 1));
-                // check dt1>dt2
-                if (bac_dt1 < bac_dt2) {
-                    if(!output.contains(str1[i]) && !output.contains(str2[j]))
-                        output += str2[j] + " + ";
-                    j++;
-                }
-                //else dt1=dt2
-                else if (bac_dt1 == bac_dt2) {
-                    int value1 = Integer.parseInt(str1[i].charAt(0) + "");
-                    int value2 = Integer.parseInt(str2[j].charAt(0) + "");
-                    output += (value1 + value2) + str1[i].substring(1, str1[i].length()) + " + ";
-                    i++;
-                    j++;
-                }
-                //else
-                else {
-                    if(!output.contains(str1[i]) && !output.contains(str2[j]))
-                    output += str1[i] + " + ";
-                    i++;
-                }
+        long b[] = new long[10000];
+        for (int i = 0; i < str2.length; i++) {
+            String arr[] = str2[i].split("\\*x\\^");
+            if (bb <= Integer.parseInt(arr[1]))
+                bb = Integer.parseInt(arr[1]);
+            b[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
+        }
+
+        int max = 0;
+        if(ba>bb) max = ba;
+        else max = bb;
+
+        long c[] = new long[10000];
+        for(int i= max;i>=0;i--){
+            c[i] = a[i] + b[i];
+            if(c[i]!=0){
+                output += c[i] + "*x^" + i + " + ";
             }
         }
 

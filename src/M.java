@@ -14,41 +14,41 @@ public class M {
             arr[i] = input.nextLine();
         }
 
-        postfix(arr);
+        for (int i = 0; i < n; i++) {
+            postfix(arr[i]);
+        }
+
     }
 
-    public static void postfix(String[] elementMath) {
-        String s1 = "", E[];
-        Stack<String> S = new Stack<String>();
-        for (int i = 0; i < elementMath.length; i++) {    // duyet cac phan tu
-            char c = elementMath[i].charAt(0);  // c la ky tu dau tien cua moi phan tu
+    public static void postfix(String infix) {
+        String s1 = "";
+        Stack<Character> stack = new Stack<Character>();
+        for (int i = 0; i < infix.length(); i++) {    // duyet cac phan tu
+            char s = infix.charAt(i);
 
-            if (!isOperator(c))         // neu c khong la toan tu
-                s1 = s1 + elementMath[i];     // xuat elem vao s1
-            else {                       // c la toan tu
-                if (c == '(') S.push(elementMath[i]);   // c la "(" -> day phan tu vao Stack
-                else {
-                    if (c == ')') {          // c la ")"
-                        char c1;        //duyet lai cac phan tu trong Stack
-                        do {
-                            c1 = S.peek().charAt(0);    // c1 la ky tu dau tien cua phan tu
-                            if (c1 != '(') s1 = s1 + S.peek();    // trong khi c1 != "("
-                            S.pop();
-                        } while (c1 != '(');
-                    } else {
-                        while (!S.isEmpty() && priority(S.peek().charAt(0)) >= priority(c)) {
-                            // Stack khong rong va trong khi phan tu trong Stack co do uu tien >= phan tu hien tai
-                            s1 = s1 + S.peek();   // xuat phan tu trong Stack ra s1
-                            S.pop();
-                        }
-                        S.push(elementMath[i]); //  dua phan tu hien tai vao Stack
-                    }
+            if (!isOperator(s))         // neu c khong la toan tu
+                s1 += s;     // xuat elem vao s1
+            else if (s == '(') {
+                stack.push(s);   // c la "(" -> day phan tu vao Stack
+            } else if (s == ')') {
+                char x = stack.pop();
+                while (x != '(') {
+                    s1 += x;
+                    x = stack.pop();
                 }
             }
+            // c la dau
+            else {
+                while (stack.size() > 0
+                        && priority(s) <= priority(stack.peek())) {
+                    s1 += stack.pop();
+                }
+                stack.push(s);
+            }
         }
-        while (!S.isEmpty()) {   // Neu Stack con phan tu thi day het vao s1
-            s1 = s1 + S.peek();
-            S.pop();
+
+        while(stack.size()>0){   // Neu Stack con phan tu thi day het vao s1
+            s1 += stack.pop();
         }
 
         System.out.println(s1);
@@ -57,7 +57,7 @@ public class M {
     // thiet lap thu tu uu tien
     public static int priority(char c) {
         if (c == '+' || c == '-') return 1;
-        else if (c == '*' || c == '/') return 2;
+        else if (c == '*' || c == '/' || c == '%') return 2;
         else return 0;
     }
 
