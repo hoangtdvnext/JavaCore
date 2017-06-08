@@ -19,7 +19,7 @@ public class G {
         String str1[] = dathuc1.split("[\\s,+]+");
         String str2[] = dathuc2.split("[\\s,+]+");
         String output = "";
-        long a[] = new long[10000];
+        int a[] = new int[10001];
         int ba = 0, bb = 0;
         for (int i = 0; i < str1.length; i++) {
             String arr[] = str1[i].split("\\*x\\^");
@@ -28,7 +28,7 @@ public class G {
             a[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
         }
 
-        long b[] = new long[10000];
+        int b[] = new int[10001];
         for (int i = 0; i < str2.length; i++) {
             String arr[] = str2[i].split("\\*x\\^");
             if (bb <= Integer.parseInt(arr[1]))
@@ -40,11 +40,11 @@ public class G {
         if(ba>bb) max = ba;
         else max = bb;
 
-        long c[] = new long[10000];
+        int c[] = new int[10001];
         for(int i= max;i>=0;i--){
             c[i] = a[i] + b[i];
             if(c[i]!=0){
-                output += c[i] + "*x^" + i + " + ";
+               output += c[i] + "*x^" + i + " + ";
             }
         }
 

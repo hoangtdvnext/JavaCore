@@ -1,3 +1,6 @@
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
 /**
  * Created by ASUS on 5/23/2017.
  */
@@ -14,13 +17,30 @@ public class Demo {
 ////
 ////        for(int i=0;i<3;i++){
 ////            a[i] = input.nextInt();
-////            System.out.println(a[i]);
+////            System.out.println(a[i]);2 4 1 2 10 2 3
 ////        }
-        String s1 = "bab";
-        String s2 = "bba";
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        Scanner input = new Scanner(System.in);
+        for(int i=0;i<7;i++){
+            queue.add(input.nextInt());
+        }
 
-        System.out.println(s1.compareTo(s2));
-
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
+        int a = 12223;
     }
 
 }
