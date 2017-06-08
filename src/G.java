@@ -21,13 +21,14 @@ public class G {
         String output = "";
         int a[] = new int[10001];
         int ba = 0, bb = 0;
+        //1.
         for (int i = 0; i < str1.length; i++) {
             String arr[] = str1[i].split("\\*x\\^");
             if (ba <= Integer.parseInt(arr[1]))
                 ba = Integer.parseInt(arr[1]);
             a[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
         }
-
+        //2.
         int b[] = new int[10001];
         for (int i = 0; i < str2.length; i++) {
             String arr[] = str2[i].split("\\*x\\^");
@@ -36,10 +37,12 @@ public class G {
             b[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
         }
 
+        //3. tim bac lon nhat
         int max = 0;
         if(ba>bb) max = ba;
         else max = bb;
 
+        //4. tinh tong va hien thi
         int c[] = new int[10001];
         for(int i= max;i>=0;i--){
             c[i] = a[i] + b[i];

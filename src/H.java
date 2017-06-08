@@ -37,4 +37,48 @@ public class H {
         System.out.println();
     }
 
+    public static boolean sinhHV(String input, int n) {
+        boolean ok = true;
+        char arr[] = input.toCharArray();
+        int i = n - 2;
+        while (arr[i] >= arr[i + 1]) {
+            i--;
+            if (i == -1) break;
+        }
+
+        if (i == -1) {
+            ok = false;
+        } else {
+            char min = '9';
+            int imin = i;
+            for (int k = i + 1; k < n; k++) {
+                if (arr[k] > arr[i] && arr[k] <= min) {
+                    min = arr[k];
+                    imin = k;
+                }
+            }
+
+            char tmp = arr[i];
+            arr[i] = arr[imin];
+            arr[imin] = tmp;
+
+            for (int k = i + 1; k < n - 1; k++) {
+                for (int j = k + 1; j < n; j++) {
+                    if (arr[k] > arr[j]) {
+                        tmp = arr[k];
+                        arr[k] = arr[j];
+                        arr[j] = tmp;
+                    }
+                }
+            }
+
+            String ans = "";
+            for (int j = 0; j < n; j++) {
+                ans += arr[j];
+            }
+        }
+
+        return ok;
+    }
+
 }

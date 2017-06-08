@@ -27,19 +27,19 @@ public class D {
         int gt, d, c, i;
         d = 0;
         c = n - 1;
-        gt = 1;
+        gt = n*n-1;
         while (d <= c) {
             for (i = d; i <= c; i++) {
-                a[d][i] = gt++;
+                a[d][i] = gt--;
             }
             for (i = d + 1; i <= c; i++) {
-                a[i][c] = gt++;
+                a[i][c] = gt--;
             }
             for (i = c - 1; i >= d; i--) {
-                a[c][i] = gt++;
+                a[c][i] = gt--;
             }
             for (i = c - 1; i > d; i--) {
-                a[i][d] = gt++;
+                a[i][d] = gt--;
             }
             d++;
             c--;
@@ -47,7 +47,7 @@ public class D {
 
         for (int j = 0; j < n; j++) {
             for (int k = 0; k < n; k++) {
-                System.out.print((n * n - a[j][k] + 1) + " ");
+                System.out.print((a[j][k] + 1) + " ");
             }
             System.out.println();
         }
