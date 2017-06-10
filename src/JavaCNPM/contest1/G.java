@@ -1,3 +1,5 @@
+package JavaCNPM.contest1;
+
 import java.util.Scanner;
 
 /**
@@ -21,14 +23,14 @@ public class G {
         String output = "";
         int a[] = new int[10001];
         int ba = 0, bb = 0;
-        //1.
+        //1. Mảng đa thức 1
         for (int i = 0; i < str1.length; i++) {
             String arr[] = str1[i].split("\\*x\\^");
             if (ba <= Integer.parseInt(arr[1]))
                 ba = Integer.parseInt(arr[1]);
             a[Integer.parseInt(arr[1])] = Integer.parseInt(arr[0]);
         }
-        //2.
+        //2. Mảng đa thức 2
         int b[] = new int[10001];
         for (int i = 0; i < str2.length; i++) {
             String arr[] = str2[i].split("\\*x\\^");

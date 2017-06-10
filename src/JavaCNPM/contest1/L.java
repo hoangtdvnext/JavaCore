@@ -1,3 +1,5 @@
+package JavaCNPM.contest1;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

@@ -1,3 +1,5 @@
+package JavaCNPM.contest1;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;

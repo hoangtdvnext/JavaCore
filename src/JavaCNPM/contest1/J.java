@@ -1,23 +1,20 @@
-package algorithms;
+package JavaCNPM.contest1;
 
 import java.util.Scanner;
 
 /**
- * Created by ASUS on 6/10/2017.
+ * Created by Hoang Ta Duy on 6/11/2017.
  */
-public class ToHop {
+public class J {
     /*khai bao bien*/
     static int ok = 1;
-    static int n, k, a[] = new int[100];
+    static int n, k, a[], b[] = new int[100];
 
     public static void next() {
-        for (int i = 1; i <= k; i++) {
-            a[i] = i;
-        }
-        while (ok == 1) {
-            xuat();
-            sinhTH();
-        }
+        a = new int[]{0, 3, 4, 5, 6};//2 3 5
+        b = new int[]{0, 3, 4, 5, 6};
+        sinhTH();
+        xuat();
     }
 
     /*
@@ -37,9 +34,9 @@ public class ToHop {
         int i = k;
         //2.1.1 tim a[i] != n+i-k
         while (i > 0 && a[i] == n + i - k) i--;
-        //2.1.2 -> cap nhat lai a[i] = a[i] + 1
-        a[i]++;
         if (i > 0) {
+            //2.1.2 -> cap nhat lai a[i] = a[i] + 1
+            a[i]++;
             //2.1.3 gan lai gia tri tu vi tri i+1 -> k
             // a[j] = a[i] + j - i;
             for (int j = i + 1; j <= k; j++) {
@@ -51,10 +48,15 @@ public class ToHop {
     }
 
     public static void xuat() {
-        for (int i = 1; i <= k; i++) {
-            System.out.print(a[i] + " ");
+        int i = 1;
+        int dem = 0;
+        while (i <= k) {
+            if (a[i] == b[i]) dem++;
+            i++;
         }
-        System.out.println();
+
+        if (dem == 0) System.out.println(k);
+        else System.out.println(dem);
     }
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package JavaCNPM.algorithms;
+
 import java.util.Scanner;
 
 /**
