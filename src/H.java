@@ -5,6 +5,8 @@ import java.util.Scanner;
  */
 public class H {
 
+    static boolean ok = false;
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int n = Integer.parseInt(input.nextLine().trim());
@@ -21,24 +23,29 @@ public class H {
 
 
     public static void sort(String strTmp[]) {
-       for(int i = 0;i<strTmp.length-1;i++){
-           for(int j = i+1;j<strTmp.length;j++){
-               if(strTmp[i].compareTo(strTmp[j])>0){
-                   String tmp = strTmp[i];
-                   strTmp[i] = strTmp[j];
-                   strTmp[j] = tmp;
-               }
-           }
-       }
-
-        for (int j = 0; j < strTmp.length; j++) {
-            System.out.print(strTmp[j]);
+        String input = "";
+        String result = "";
+        for (int i = 0; i < strTmp.length; i++) {
+            input += i + 1;
+            result +=strTmp[i];
         }
-        System.out.println();
+
+        while (ok == false) {
+            char tmp[] = sinhHV(input, strTmp.length);
+            input = String.copyValueOf(tmp);
+            String str = "";
+            for (int i = 0; i < strTmp.length; i++) {
+                str +=strTmp[Integer.parseInt(tmp[i]+"")-1];
+            }
+            if(result.compareTo(str)>0){
+                result = str;
+            }
+        }
+
+        System.out.println(result);
     }
 
-    public static boolean sinhHV(String input, int n) {
-        boolean ok = true;
+    public static char[] sinhHV(String input, int n) {
         char arr[] = input.toCharArray();
         int i = n - 2;
         while (arr[i] >= arr[i + 1]) {
@@ -47,7 +54,7 @@ public class H {
         }
 
         if (i == -1) {
-            ok = false;
+            ok = true;
         } else {
             char min = '9';
             int imin = i;
@@ -71,14 +78,9 @@ public class H {
                     }
                 }
             }
-
-            String ans = "";
-            for (int j = 0; j < n; j++) {
-                ans += arr[j];
-            }
         }
 
-        return ok;
+        return arr;
     }
 
 }
