@@ -1,66 +1,69 @@
 package algorithms;
 
+import java.util.Scanner;
+
 /**
  * Created by ASUS on 6/9/2017.
+ * BCPERMU
  */
 public class HoanVi {
 
-    public static void main(String[] args) {
-        int n = 4;
-        int a[] = new int[n+1];
-        createArr(a, n);
-        hv(a, n);
-    }
+    static boolean ok = true;
 
-    public static void createArr(int a[], int n){
-        for(int i=1;i<=n;i++){
+    // Duyet mang tu 1 -> n
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int a[] = new int[9];
+        for (int i = 1; i <= n; i++) {
             a[i] = i;
         }
+
+        show(a, n);
+        while (ok) {
+            sinhHV(a, n);
+        }
     }
 
+    // input n
+    // start = 1234
+    // end  = 4321
+    public static void sinhHV(int a[], int n) {
+        int i = n - 1;
+        //1. Tim vi tri i ma phan tu thu a[i] < a[i+1]
+        while (i > 0 && a[i] > a[i + 1]) i--;
+        //2. Neu chua duyet het thi van con co the sinh tiep
+        if (i > 0) {
+            int k = n;
+            //3. Duyet tu cuoi toi vi tri i xem thang a[k] > a[i] -> k
+            while (a[i] > a[k]) k--;
+            //4. Doi cho a[i] -> a[k]
+            int tmp = a[i];
+            a[i] = a[k];
+            a[k] = tmp;
+            //5. Dao vi tri day tu vi tri thu i+1 toi vi tri thu n
+            int start = i + 1, end = n;
+            while (start <= end) {
+                tmp = a[start];
+                a[start] = a[end];
+                a[end] = tmp;
+                // chay tiep bang cach tang dau va giam cuoi cho het cac phan tu
+                start++;
+                end--;
+            }
+            //6. show
+            show(a, n);
+        } else {
+            ok = false;
+        }
+    }
+
+    // 6. In ra man hinh
     public static void show(int a[], int n) {
-        for (int i = 0; i < n; i++) {
-            System.out.print(a[i] + " ");
+        String ans = "";
+        for (int i = 1; i <= n; i++) {
+            ans += a[i];
         }
-        System.out.println();
-    }
-
-    public static void sort(int a[], int n, int vt){
-        for (int i = vt; i < n-1; i++) {
-            for (int j = i+1; j < n; j++) {
-                if(a[i]>=a[j]){
-                    int tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
-                }
-            }
-        }
-    }
-
-    public static void hv(int a[], int n){
-        while (true){
-            int i;
-            //1. duyet tu cuoi len dau
-            for(i = n;i>0;i--){
-                // neu day giam het roi  thi dung lai
-                if(i==1) return;
-                // thoat vi da tim duoc vi tri lam day mat tinh tang dan
-                if(a[i-1]>a[i]) break;
-            }
-
-            for(int j = n;j>=i;j--){
-                if(a[j]>a[i]){
-                    // doi cho
-                    int tmp = a[j];
-                    a[j] = a[i];
-                    a[i] = tmp;
-                    // sap xep tang
-                    sort(a,n,i);
-                    // in cau hinh
-                    show(a,n);
-                    break;
-                }
-            }
-        }
+        System.out.println(ans);
     }
 }

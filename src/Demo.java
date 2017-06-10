@@ -19,28 +19,31 @@ public class Demo {
 ////            a[i] = input.nextInt();
 ////            System.out.println(a[i]);2 4 1 2 10 2 3
 ////        }
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-        Scanner input = new Scanner(System.in);
-        for(int i=0;i<7;i++){
-            queue.add(input.nextInt());
-        }
+//        PriorityQueue<Integer> queue = new PriorityQueue<>();
+//        Scanner input = new Scanner(System.in);
+//        for(int i=0;i<7;i++){
+//            queue.add(input.nextInt());
+//        }
+//
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        queue.poll();
+//        System.out.println(queue.peek());
+//        int a = 12223;
 
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        queue.poll();
-        System.out.println(queue.peek());
-        int a = 12223;
+        Integer MOD = (int) Math.pow(10, 9)-1;
+        System.out.println(MOD);
     }
 
 }

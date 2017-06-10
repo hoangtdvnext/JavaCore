@@ -3,29 +3,32 @@ import java.util.Scanner;
 
 /**
  * Created by Hoang Ta Duy on 6/7/2017.
+ * P178PROJ
  */
 public class O {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Integer n = Integer.parseInt(input.nextLine());
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        PriorityQueue<Long> queue = new PriorityQueue<>();
         //1. input data
-        String str[];
-        for(int i=0;i<n;i++){
-            queue.add(input.nextInt());
+        for (int i = 0; i < n; i++) {
+            queue.add(input.nextLong());
         }
         //2. giai thuat
         Integer MOD = (int) Math.pow(10, 9) + 7;
-        while (queue.size() != 1) {
-            int a1 = queue.peek();
+        long tong = 0;
+        while (queue.size() > 1) {
+            long a1 = queue.peek();
             queue.poll();
-            int a2 = queue.peek();
+            long a2 = queue.peek();
             queue.poll();
-            queue.add((a1 + a2) % MOD);
+            long sum = (a1 + a2) % MOD;
+            queue.add(sum);
+            tong = (tong + sum) % MOD;
         }
 
-        System.out.println(queue.peek() % MOD);
+        System.out.println(tong);
     }
 }
 
