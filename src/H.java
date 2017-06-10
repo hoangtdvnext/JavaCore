@@ -5,82 +5,35 @@ import java.util.Scanner;
  */
 public class H {
 
-    static boolean ok = false;
-
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int n = Integer.parseInt(input.nextLine().trim());
-        for (int i = 0; i < n; i++) {
-            String str[] = input.nextLine().split(" ");
-            int m = Integer.parseInt(str[0]);
-            String strTmp[] = new String[m];
-            for (int j = 1; j <= m; j++) {
-                strTmp[j - 1] = str[j];
+        int t,n,i,A[]=new int[10]; String S[]=new String[10];
+        StringBuilder min;
+        boolean X[]=new boolean[10];
+        Scanner in = new Scanner(System.in);
+        t=in.nextInt();
+        while(t-- >0){
+            min=new StringBuilder();
+            n=in.nextInt();
+            for(i=1;i<=n;i++){
+                S[i]=in.next(); min.append(S[i]);
+                X[i]=true;
             }
-            sort(strTmp);
+            Try(A,S,X,min,n,1);
+            System.out.println(min);
         }
     }
-
-
-    public static void sort(String strTmp[]) {
-        String input = "";
-        String result = "";
-        for (int i = 0; i < strTmp.length; i++) {
-            input += i + 1;
-            result +=strTmp[i];
-        }
-
-        while (ok == false) {
-            char tmp[] = sinhHV(input, strTmp.length);
-            input = String.copyValueOf(tmp);
-            String str = "";
-            for (int i = 0; i < strTmp.length; i++) {
-                str +=strTmp[Integer.parseInt(tmp[i]+"")-1];
-            }
-            if(result.compareTo(str)>0){
-                result = str;
+    public static void Try(int A[], String S[],boolean X[], StringBuilder min, int n,int i){
+        int j,k; StringBuilder s=new StringBuilder();
+        for(j=1;j<=n;j++){
+            if(X[j]){
+                A[i]=j; X[j]=false;
+                if(i==n){
+                    for(k=1;k<=n;k++) s.append(S[A[k]]);
+                    String s1=s.toString(), s2=min.toString();
+                    if(s1.compareTo(s2)<0) min.replace(0, s1.length(), s1);
+                } else Try(A,S,X,min,n,i+1);
+                X[j]=true;
             }
         }
-
-        System.out.println(result);
     }
-
-    public static char[] sinhHV(String input, int n) {
-        char arr[] = input.toCharArray();
-        int i = n - 2;
-        while (arr[i] >= arr[i + 1]) {
-            i--;
-            if (i == -1) break;
-        }
-
-        if (i == -1) {
-            ok = true;
-        } else {
-            char min = '9';
-            int imin = i;
-            for (int k = i + 1; k < n; k++) {
-                if (arr[k] > arr[i] && arr[k] <= min) {
-                    min = arr[k];
-                    imin = k;
-                }
-            }
-
-            char tmp = arr[i];
-            arr[i] = arr[imin];
-            arr[imin] = tmp;
-
-            for (int k = i + 1; k < n - 1; k++) {
-                for (int j = k + 1; j < n; j++) {
-                    if (arr[k] > arr[j]) {
-                        tmp = arr[k];
-                        arr[k] = arr[j];
-                        arr[j] = tmp;
-                    }
-                }
-            }
-        }
-
-        return arr;
-    }
-
 }
