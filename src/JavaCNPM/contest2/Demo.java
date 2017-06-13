@@ -1,5 +1,6 @@
 package JavaCNPM.contest2;
 
+import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -8,18 +9,23 @@ import java.util.Queue;
  */
 public class Demo {
     public static void main(String[] args) {
-        Queue queue = new LinkedList<>();
+//        Queue queue = new LinkedList<>();
+//
+//        queue.add(1);
+//        queue.add(2);
+//        queue.add(3);
+//        queue.add(4);
+//        queue.add(5);
+//        queue.add(6);
+//        queue.add(7);
+//
+//        System.out.println(queue.poll());
+//        System.out.println(queue.poll());
+//        System.out.println(queue.poll());
 
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
-        queue.add(4);
-        queue.add(5);
-        queue.add(6);
-        queue.add(7);
+        BigInteger sum = new BigInteger(String.valueOf(9));
 
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
+        System.out.println(sum.pow(2));
+
     }
 }
