@@ -28,11 +28,15 @@ public class M {
         for (int i = 0; i < infix.length(); i++) {    // duyet cac phan tu
             char s = infix.charAt(i);
 
-            if (!isOperator(s))         // neu c khong la toan tu
+			// neu c khong la toan tu -> đẩy ra kết quả
+            if (!isOperator(s))         
                 s1 += s;     // xuat elem vao s1
-            else if (s == '(') {
-                stack.push(s);   // c la "(" -> day phan tu vao Stack
+            else 
+			// c la "(" -> day phan tu vao Stack
+			if (s == '(') {
+                stack.push(s);  
             } else if (s == ')') {
+				// Lấy ra cho đến khi nào gặp dấu ')' trong stack
                 char x = stack.pop();
                 while (x != '(') {
                     s1 += x;
@@ -41,10 +45,12 @@ public class M {
             }
             // c la dau
             else {
+				//Kiem tra neu trong stack van con va phan tu s co du uu tien < trong stack thi lay ra
                 while (stack.size() > 0
                         && priority(s) <= priority(stack.peek())) {
                     s1 += stack.pop();
                 }
+				// push s vao stack thay cho
                 stack.push(s);
             }
         }
