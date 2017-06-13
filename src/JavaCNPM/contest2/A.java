@@ -30,10 +30,10 @@ public class A {
     }
 
     public static void insertionSort(int a[], int n) {
-        //vi tri insert
+        //1.vi tri insert and value
         int vt;
-        //gia tri
         int value;
+        //2. for sort
         for (int i = 0; i < n; i++) {
             // chon 1 gia tri de chen
             value = a[i];
@@ -53,14 +53,8 @@ public class A {
         }
     }
 
-    // 5 7 3 2
-    // value = 5, vt = 0
-    // 5
-    // 5 7
-    // 5 3 7
-    //
-
     public static void display(int a[], int n) {
+        System.out.print("Buoc " + n + ": ");
         for (int i = 0; i <= n; i++) {
             if (i == n) System.out.print(a[i]);
             else System.out.print(a[i] + " ");
