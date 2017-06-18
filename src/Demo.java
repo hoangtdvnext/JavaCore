@@ -44,24 +44,25 @@ public class Demo {
 
 //        Integer MOD = (int) Math.pow(10, 9)-1;
 //        System.out.println(MOD);
-        int a[], b[] = new int[100];
-        a = new int[]{0,1,4,5};
-        b = new int[]{0,2,3,4};
+//        int a[], b[] = new int[100];
+//        a = new int[]{0,1,4,5};
+//        b = new int[]{0,2,3,4};
+//
+//        int i=1;
+//        int k = 3;
+//        int dem = 0;
+//        while (i<=3){
+//            if(a[i]==b[i]) dem++;
+//
+//            i++;
+//        }
+//
+//        if(dem==0){
+//            System.out.println(k);
+//        }else{
+//            System.out.println(dem);
+//        }
 
-        int i=1;
-        int k = 3;
-        int dem = 0;
-        while (i<=3){
-            if(a[i]==b[i]) dem++;
-
-            i++;
-        }
-
-        if(dem==0){
-            System.out.println(k);
-        }else{
-            System.out.println(dem);
-        }
     }
 
 }
