@@ -20,9 +20,13 @@ public class Product implements Subject {
         obs.add(observer);
     }
 
+    public void attachListObserver(List<Observer> observers) {
+        obs.addAll(observers);
+    }
+
     @Override
     public void detachObserver(Observer observer) {
-        obs.remove(observer);
+            obs.remove(observer);
     }
 
     @Override

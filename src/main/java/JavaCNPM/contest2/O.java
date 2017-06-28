@@ -20,37 +20,34 @@ public class O {
     public static void checkValue(String input) {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < input.length(); i++) {
-            boolean check = true;
             switch (input.charAt(i)) {
                 case '(':
                     stack.push(1);
                     break;
                 case ')':
-                    if (!stack.isEmpty() && stack.peek() == 1) {
+                    if (!stack.isEmpty() && stack.peek().equals(1)) {
                         stack.pop();
-                    } else check = false;
+                    }
                     break;
                 case '[':
                     stack.push(2);
                     break;
                 case ']':
-                    if (!stack.isEmpty() && stack.peek() == 2) {
+                    if (!stack.isEmpty() && stack.peek().equals(2) ) {
                         stack.pop();
-                    } else check = false;
+                    }
                     break;
                 case '{':
                     stack.push(3);
                     break;
                 case '}':
-                    if (!stack.isEmpty() && stack.peek() == 3) {
+                    if (!stack.isEmpty() && stack.peek().equals(3)) {
                         stack.pop();
-                    } else check = false;
+                    }
                     break;
                 default:
                     break;
             }
-
-            if (!check) break;
         }
 
         if (stack.isEmpty()) {
