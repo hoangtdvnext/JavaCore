@@ -35,4 +35,19 @@ public class Fibonacci {
             fibonacci(n - 1);
         }
     }
+
+    // fibonacci de qui
+
+    public static int fibonacciDQ(int n) {
+        if (n < 2) return n;
+
+        int f0 = 0, f1 = 1, fn = 0;
+        for (int i = 2; i < n; i++) {
+            fn = f0 + f1;
+            f0 = f1;
+            f1 = fn;
+        }
+
+        return fn;
+    }
 }
