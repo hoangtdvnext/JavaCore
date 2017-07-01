@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class B {
     /*
-    * Qui hoạc động
+    * Qui hoạch động
     * Khoi tạo 2 mảng, 1 mảng lưu độ dài tốt nhất tại thời điểm i
     * Duyệt từng phần từ 1
     * Nếu có phần tử nào đứng trước nó nhỏ hơn nó thì sẽ lấy giá trị max

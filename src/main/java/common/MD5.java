@@ -29,6 +29,7 @@ public final class MD5 {
 
             return encodeFormat1(byteData);
         } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
             return null;
         }
     }
