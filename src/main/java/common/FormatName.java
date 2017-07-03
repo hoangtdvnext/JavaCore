@@ -1,6 +1,7 @@
 package common;
 
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * Created by ASUS on 5/5/2017.
@@ -31,10 +32,32 @@ public class FormatName {
             key = key.toLowerCase();
             //2.2 validate UpperCase
             buffer.
-                append((key.charAt(0) + "").toUpperCase() + key.substring(1))
-                .append(" ");
+                    append((key.charAt(0) + "").toUpperCase() + key.substring(1))
+                    .append(" ");
         }
 
         return buffer.toString().trim();
+    }
+
+    public static String formatName(String value) {
+        if(value == null || value.trim().length() == 0)
+            return null;
+
+        StringTokenizer st = new StringTokenizer(value);
+        StringBuilder sb = new StringBuilder();
+        // dung phuong thuc cua StringTokenizer de tach token
+        while (st.hasMoreTokens()) {//tra ve true neu van con tach duoc token
+            // tao sb de su dung phuong thuc cua StringBuilder
+            String t = st.nextToken();
+            //chuyen hóa chữ cái đầu sang chữ hoa
+            sb.append(Character.toUpperCase(t.charAt(0)));
+            for (int i = 1; i < t.length(); i++) {
+                //chuyển các chữ cái tiếp theo sang chữ thường
+                sb.append(Character.toLowerCase(t.charAt(i)));
+            }
+            sb.append(" ");
+        }
+
+        return sb.toString().trim();
     }
 }

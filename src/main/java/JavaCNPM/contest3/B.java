@@ -13,6 +13,7 @@ public class B {
     * Nếu có phần tử nào đứng trước nó nhỏ hơn nó thì sẽ lấy giá trị max
     * trong mảng kết quả  + 1
     * else gán giá trị mảng độ dài tại vị trí đó bằng 1
+    * Độ phức tạp O(n^2)
     *
     * 3 4 5 6 8 2 2 1 9
     * 1 2 3 4 5 1 1 1 6
