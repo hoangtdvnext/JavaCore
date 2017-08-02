@@ -26,7 +26,7 @@ public class Java8ConvertMapToList {
                 .map(x -> x.getKey())
                 .collect(Collectors.toList());
 
-        Collections.sort(result1, (o1, o2) -> o1.compareTo(o2));
+        Collections.sort(result1, Integer::compareTo);
         result1.forEach(System.out::println);
         System.out.println();
         //
@@ -35,7 +35,7 @@ public class Java8ConvertMapToList {
                 .map(x -> x.getValue())
                 .collect(Collectors.toList());
 
-        Collections.sort(result2, (o1, o2) -> o1.compareTo(o2));
+        Collections.sort(result2, String::compareTo);
         result2.forEach(System.out::println);
     }
 }

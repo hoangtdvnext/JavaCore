@@ -1,5 +1,6 @@
 package common;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 /**
@@ -17,8 +18,24 @@ public class SplitCommon {
                 System.out.println(splitStr[i]);
             }
         }
+
+        //convert utf-8
+        String a = "Tạ Duy Hoàng";
+        try {
+            String msg = new String(a.getBytes("ISO-8859-1"), "UTF-8");
+            System.out.println(msg);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String get(final String name, final String key, final Object... params){
+        return "";
     }
 }
+
+
+
 //    String s = "Hello|dnh,blog.abc";
 //    String result[] = s.split("[|,.]");
 //    for(String r : result){

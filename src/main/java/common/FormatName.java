@@ -1,20 +1,11 @@
 package common;
 
-import java.util.Scanner;
 import java.util.StringTokenizer;
 
 /**
  * Created by ASUS on 5/5/2017.
  */
 public class FormatName {
-
-    public static void main(String[] args) {
-        System.out.println("Input name: ");
-
-        String input = new Scanner(System.in).nextLine();
-
-        System.out.println(formatNameInput(input));
-    }
 
     public static String formatNameInput(String inputName) {
         //1. check inputName
@@ -31,9 +22,8 @@ public class FormatName {
             //2.1 validate LowerCase
             key = key.toLowerCase();
             //2.2 validate UpperCase
-            buffer.
-                    append((key.charAt(0) + "").toUpperCase() + key.substring(1))
-                    .append(" ");
+            buffer.append((key.charAt(0) + "").toUpperCase() + key.substring(1))
+                  .append(" ");
         }
 
         return buffer.toString().trim();

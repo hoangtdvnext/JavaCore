@@ -1,0 +1,20 @@
+|-@Deprecated
+|    Đây là một Annotation dùng để chú thích một cái gì đó bị lỗi thời, tốt nhất không nên sử dụng nữa, chẳng hạn như class, hoặc method.
+|    Chú thích @Deprecated được bộ biên dịch quan tâm để thông báo cho bạn nên dùng một cách nào đó thay thế
+|-@Override
+|    Annotation @Override được sử dụng cho các method ghi đè của method trong một class cha (superclass).
+|    Nếu method này không hợp lệ với một method trong class cha, trình biên dịch sẽ thông báo cho bạn một lỗi.
+|-@SuppressWarnings
+|    Chú thích @SuppressWarnings làm cho các trình biên dịch thôi không cảnh báo một vấn đề của method nào đó. Ví dụ, nếu trong một method có gọi tới một method khác đã lỗi thời, hoặc bên trong method có một ép kiểu không an toàn, trình biên dịch có thể tạo ra một cảnh báo.
+|    Bạn có thể tắt các cảnh báo này bằng cách chú thích method này bằng @SuppressWarnings.
+
+|- Các annotation type có thể được gắn trên
+
+1.TYPE - Gắn trên khai báo Class, interface, enum, annotation.
+2.FIELD - Gắn trên khai báo trường (field), bao gồm cả các hằng số enum.
+3.METHOD - Gắn trên khai báo method.
+4.PARAMETER - Gắn trên khai báo parameter
+5.CONSTRUCTOR - Gắn trên khai báo cấu tử
+6.LOCAL_VARIABLE - Gắn trên biến địa phương.
+7.ANNOTATION_TYPE - Gắn trên khai báo Annotation
+8.PACKAGE - Gắn trên khai báo package.

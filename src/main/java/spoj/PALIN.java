@@ -1,7 +1,5 @@
 package spoj;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -35,7 +33,7 @@ public class PALIN {
 
     public static String nextNumber(String input) {
         StringBuilder stringBuilder = new StringBuilder(input);
-        List<Character> list = new ArrayList<>(stringBuilder.reverse());
+//        List<Character> list = new ArrayList<>(stringBuilder.reverse());
         char output[] = input.toCharArray();
         int position = 0;
         while (output[position] == '9') {

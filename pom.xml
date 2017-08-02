@@ -14,6 +14,28 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.6.3</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.facebook.api/facebook-java-api -->
+        <dependency>
+            <groupId>com.facebook.api</groupId>
+            <artifactId>facebook-java-api</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
     </dependencies>
 
     <!--Error:java: javacTask: source release 8 requires target release 1.8-->
