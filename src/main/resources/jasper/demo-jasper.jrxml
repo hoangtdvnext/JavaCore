@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
-<!-- 2017-10-02T17:05:39 -->
+<!-- Created with Jaspersoft Studio version 6.4.0.final using JasperReports Library version 6.4.1  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="demo-jasper" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9dbeb1ab-bbb0-40c1-bf43-0407ed9f442b">
 	<queryString>
 		<![CDATA[]]>
@@ -13,15 +12,15 @@
 	<title>
 		<band height="91" splitType="Stretch">
 			<staticText>
-				<reportElement x="230" y="40" width="100" height="30" uuid="322da38f-48f0-49ec-831e-679de15406a7"/>
+				<reportElement x="190" y="40" width="170" height="40" uuid="322da38f-48f0-49ec-831e-679de15406a7"/>
 				<textElement textAlignment="Center">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Demo Image Jasper]]></text>
 			</staticText>
 			<image>
-				<reportElement x="0" y="20" width="50" height="50" uuid="6fc84040-dad4-4bf9-ad61-22c052cb07e0"/>
-				<imageExpression><![CDATA["C:/Users/ASUS/JaspersoftWorkspace/Pi_Dashboard/image/Halloween-Ghost-1024x1024.jpg"]]></imageExpression>
+				<reportElement x="0" y="30" width="50" height="50" uuid="6fc84040-dad4-4bf9-ad61-22c052cb07e0"/>
+				<imageExpression><![CDATA["file:/F:/CNPM/HoangPtit/JavaCore/src/main/resources/img/Halloween-Ghost-1024x1024.jpg"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -32,9 +31,9 @@
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="290" splitType="Stretch">
+		<band height="329" splitType="Stretch">
 			<image>
-				<reportElement x="205" y="146" width="50" height="50" uuid="3ee79786-8066-4b8c-a8f5-1e111834506d"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="555" height="329" uuid="3ee79786-8066-4b8c-a8f5-1e111834506d"/>
 				<imageExpression><![CDATA[$F{imgInput}]]></imageExpression>
 			</image>
 		</band>
@@ -42,7 +41,7 @@
 	<columnFooter>
 		<band height="61" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="180" y="31" width="200" height="30" uuid="bb505675-5f38-4aee-821a-9d5590bba871"/>
+				<reportElement x="180" y="0" width="200" height="61" uuid="bb505675-5f38-4aee-821a-9d5590bba871"/>
 				<textElement textAlignment="Center">
 					<font size="16" isBold="true"/>
 				</textElement>

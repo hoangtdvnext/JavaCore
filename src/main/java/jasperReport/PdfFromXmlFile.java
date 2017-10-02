@@ -21,18 +21,18 @@ public class PdfFromXmlFile {
 
     public static void main(String[] args) throws JRException, IOException {
         // 1. read file from demo-jasper.jasper
-        File fileInput = new File("F:\\HoangTd\\JavaLearning\\JavaCore\\src\\main\\resources\\jasper\\demo-jasper.jasper");
+        File fileInput = new File("F:\\CNPM\\HoangPtit\\JavaCore\\src\\main\\resources\\jasper\\demo-jasper.jasper");
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(fileInput);
         // 2. read file from demo-jasper.jrxml
 //        JasperReport jasperReport = JasperCompileManager
-//                .compileReport("F:\\HoangTd\\JavaLearning\\JavaCore\\src\\main\\resources\\jasper\\demo-jasper.jrxml");
+//                .compileReport("F:\\CNPM\\HoangPtit\\JavaCore\\src\\main\\resources\\jasper\\demo-jasper.jrxml");
 
         // Tham số truyền vào báo cáo
         Map<String, Object> parameters = new HashMap<>();
 
         // model
         Model model = new Model();
-        InputStream stream = new FileInputStream("F:\\HoangTd\\JavaLearning\\JavaCore\\src\\main\\resources\\img\\20170730_094631.jpg");
+        InputStream stream = new FileInputStream("F:\\CNPM\\HoangPtit\\JavaCore\\src\\main\\resources\\img\\20170730_094631.jpg");
         model.setTxtMessage("Demo jasper");
         model.setImgInput(stream);
 
@@ -57,15 +57,34 @@ public class PdfFromXmlFile {
         JasperExportManager.exportReportToPdfFile(jasperPrint, "F:/export/" + fileName);
 
         // Chạy báo cáo và export ra file png
-        FileOutputStream outputStream = new FileOutputStream(fileInput);
-        JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
+        fileName = "F:/export/" + Random.randomUUID() + ".png";
+        extractPrintImage(fileName, jasperPrint);
 
-        fileName = Random.randomUUID() + ".png";
-        BufferedImage bufferedImage = (BufferedImage)printManager.printPageToImage(fileName, 0, 1.0f);
-        ImageIO.write(bufferedImage, "png", outputStream);
-
-        outputStream.close();
         System.out.println("Finish!!!");
+    }
 
+    private static void extractPrintImage(String filePath, JasperPrint print) {
+        File file = new File(filePath);
+        OutputStream ouputStream = null;
+        try {
+            ouputStream = new FileOutputStream(file);
+            DefaultJasperReportsContext.getInstance();
+            JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
+
+            BufferedImage rendered_image = null;
+            rendered_image = (BufferedImage) printManager.printPageToImage(print, 0, 1.0f);
+            ImageIO.write(rendered_image, "png", ouputStream);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if(ouputStream != null){
+                try {
+                    ouputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

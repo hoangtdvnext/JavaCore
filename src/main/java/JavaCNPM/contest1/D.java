@@ -31,15 +31,19 @@ public class D {
         c = n - 1;
         gt = n*n-1;
         while (d <= c) {
+            // đi từ trái qua phải giữ nguyên hàng
             for (i = d; i <= c; i++) {
                 a[d][i] = gt--;
             }
+            // đi từ hàng thứ 2 tới hết, giữ nguyên cột
             for (i = d + 1; i <= c; i++) {
                 a[i][c] = gt--;
             }
+            // đi từ cột - 1 giữ nguyên hàng
             for (i = c - 1; i >= d; i--) {
                 a[c][i] = gt--;
             }
+            // đi từ hàng -1 giữ nguyên cột
             for (i = c - 1; i > d; i--) {
                 a[i][d] = gt--;
             }

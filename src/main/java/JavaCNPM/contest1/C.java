@@ -30,7 +30,7 @@ public class C {
             if(MinD>d) MinD = d;
         }
 
-        //4. check ket quan di len va di xuong
+        //4. check ket qua di len va di xuong
         TU+=MinD;
         TD+=MinU;
 

@@ -40,25 +40,6 @@ public class H {
         }
     }
 
-//
-//    public static void Try(int JavaCNPM.contest1.A[], String S[],boolean X[], StringBuilder min, int n,int i){
-//        int j,k; StringBuilder s=new StringBuilder();
-//        for(j=1;j<=n;j++){
-//            if(X[j]){
-//                JavaCNPM.contest1.A[i]=j; X[j]=false;
-//                if(i==n){
-//                    for(k=1;k<=n;k++) s.append(S[JavaCNPM.contest1.A[k]]);
-//                    String s1=s.toString(), s2=min.toString();
-//                    if(s1.compareTo(s2)<0) min.replace(0, s1.length(), s1);
-//                } else Try(JavaCNPM.contest1.A,S,X,min,n,i+1);
-//                X[j]=true;
-//            }
-//        }
-//    }
-
-    // input n
-    // start = 1234
-    // end  = 4321
     public static int[] sinhHV(int a[], int n) {
         //1.Duyet tim vi tri ma a[i] > a[i+1]
         int i = n - 1;

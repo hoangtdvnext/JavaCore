@@ -33,7 +33,11 @@ public class F {
                     .append(" ");
         }
 
-        output = buffer.append(", ").append(strTmp[0].toUpperCase()).toString().trim();
+        output = buffer
+                .append(", ")
+                .append(strTmp[0]
+                .toUpperCase())
+                .toString().trim();
         System.out.println(output);
     }
 }
