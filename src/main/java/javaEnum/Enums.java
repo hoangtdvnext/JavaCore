@@ -46,4 +46,19 @@ public final class Enums {
             return this.status;
         }
     }
+
+    public enum FileTypeReport {
+        JAPER(1),
+        JRXML(2);
+
+        private Integer extension;
+
+        FileTypeReport(final Integer fileExtension) {
+            this.extension = fileExtension;
+        }
+
+        public Integer getType() {
+            return extension;
+        }
+    }
 }
