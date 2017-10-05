@@ -10,7 +10,7 @@ import org.joda.time.format.DateTimeFormatter;
 public class DateTimeFormatUtils {
 
     /**
-     * pattern:yyyy/MM/dd, ddMMyyyy
+     * pattern:yyyy/MM/dd, ddMMyyyy...
      *
      * @param input
      * @param pattern
@@ -29,4 +29,5 @@ public class DateTimeFormatUtils {
             return null;
         }
     }
+
 }

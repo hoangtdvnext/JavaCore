@@ -13,20 +13,16 @@ public class Java8Joining {
     public static void main(String[] args) {
         List<String> stringList = new ArrayList<>();
 
-        stringList.add("quả 1");
-        stringList.add("quả 2");
-        stringList.add("quả 3");
+        stringList.add("A");
+        stringList.add("B");
+        stringList.add("C");
         stringList.add(null);
-        stringList.add("quả 5");
+        stringList.add("D");
         stringList.add(null);
-        stringList.add("quả 7");
+        stringList.add("E");
 
         // joining
-        String output = stringList
-                .stream()
-                .filter(s -> s != null)
-                .collect(Collectors.joining("/"))
-                .trim();
+        String output = concatItem("/---/", stringList);
 
         System.out.println(output);
     }
@@ -35,6 +31,13 @@ public class Java8Joining {
         if(items == null || items.length ==  0) return null;
 
         return Arrays.stream(items).filter(item -> item !=null)
+                .collect(Collectors.joining(delimiter)).trim();
+    }
+
+    public static String concatItem(final String delimiter, List<String> data){
+        if(data == null || data.size() ==  0) return null;
+
+        return data.stream().filter(item -> item !=null)
                 .collect(Collectors.joining(delimiter)).trim();
     }
 }
