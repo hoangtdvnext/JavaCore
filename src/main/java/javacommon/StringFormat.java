@@ -20,10 +20,17 @@ public class StringFormat {
             System.out.println(result1);
         }
 
+        // nếu có số 0 đằng trước thì sẽ '000200'
+        // còn nếu chỉ có số 6 thì sẽ là '   200'
+        // có thể truyền index param
+        System.out.println(String.format("%06d", 200));
+        System.out.println(String.format("%6d", 200));
+        System.out.println(String.format("%1$06d-%2$06d", 200,300));
+
         double number = 1.23456;
         // Specify precision with format.
-        String value = String.format("Three numbers after decimal: %1$.3f",
-                number);
+        String value = String.format("Three numbers after decimal: %2$.3f",
+                number,number);
         System.out.println(value);
 
         Calendar cal = Calendar.getInstance();
