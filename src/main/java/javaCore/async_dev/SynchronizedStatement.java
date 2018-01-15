@@ -18,10 +18,10 @@ public class SynchronizedStatement {
 
 
     public void addName(String name) {
-        synchronized(this) {
+//        synchronized(this) {
             lastName = name;
             nameCount++;
-        }
+//        }
         nameList.add(name);
     }
 

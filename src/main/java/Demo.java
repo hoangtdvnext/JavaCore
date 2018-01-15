@@ -1,3 +1,5 @@
+import lombok.Getter;
+import lombok.Setter;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -15,6 +17,10 @@ public class Demo {
     static {
         x += 100;
     }
+
+    @Getter
+    @Setter
+    private int lombook;
 
     static public void method() {
         x += 200;
