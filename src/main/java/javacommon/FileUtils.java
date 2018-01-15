@@ -172,7 +172,8 @@ public final class FileUtils {
      * @param fileName
      * @return
      */
-    private static String getMineTypeByFileName(String fileName){
+    @Deprecated
+    private static String getMineTypeByFileName_1(String fileName){
         if (StringUtils.isEmpty(fileName)) {
             return BLANK;
         }
@@ -183,6 +184,20 @@ public final class FileUtils {
             String mineType = DOT + arr[arr.length - 1];
             return mineType;
         }
+    }
+
+    /**
+     * Get mineType file by file name
+     * @param fileName
+     * @return
+     */
+    private static String getMineTypeByFileName(String fileName){
+        if (StringUtils.isNotEmpty(fileName) && fileName.contains(".")) {
+            String mineType = fileName.substring(fileName.lastIndexOf('.'),fileName.length());
+            return mineType;
+        }
+
+        return BLANK;
     }
 
 }
